@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `SparqlEditor`.`user` (
 );
 
 CREATE TABLE IF NOT EXISTS `SparqlEditor`.`user_queries` (
-  `id` bigint NOT NULL,
+  `id` varchar(255) NOT NULL,
   `default_dataset_name` varchar(255) DEFAULT NULL,
   `format` varchar(255) DEFAULT NULL,
   `query_result` mediumtext,

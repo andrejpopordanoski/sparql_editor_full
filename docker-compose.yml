@@ -1,15 +1,6 @@
 version: '3.7'
 
 services:
-  # sparql_editor_fe:
-  #   container_name: sparql_editor_fe
-  #   build:
-  #     context: ./sparql_editor_fe
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - 3001:3000
-  #   environment:
-  #     - CHOKIDAR_USEPOLLING=true
   sparql_editor_fe:
     container_name: sparql_editor_fe
     build:
@@ -23,18 +14,18 @@ services:
   sparql_editor_be:
     container_name: sparql_editor_be
     build:
-      context: sparql_editor_be # Use an image built from the specified dockerfile in the `polling-app-server` directory.
+      context: sparql_editor_be
       dockerfile: Dockerfile
     ports:
-      - '8080:8080' # Forward the exposed port 8080 on the container to port 8080 on the host machine
+      - '8080:8080'
     restart: always
     depends_on:
-      - db # This service depends on mysql. Start that first.
-    environment: # Pass environment variables to the service
+      - db
+    environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/SparqlEditor?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Skopje
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: aplikacija
-    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+    networks:
       - backend
       - frontend
 
@@ -42,7 +33,6 @@ services:
     image: mysql
     ports:
       - '3306:3306'
-    # command: --init-file /data/application/init.sql
     restart: always
     environment:
       MYSQL_DATABASE: SparqlEditor
