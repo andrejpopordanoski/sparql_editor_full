@@ -1,0 +1,6 @@
+[submodule "sparql_editor_fe"]
+	path = sparql_editor_fe
+	url = https://github.com/andrejpopordanoski/sparql_editor_fe.git
+[submodule "sparql_editor_be"]
+	path = sparql_editor_be
+	url = https://github.com/andrejpopordanoski/sparql_editor_be.git
