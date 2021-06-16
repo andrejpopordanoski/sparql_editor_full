@@ -1,6 +1,8 @@
 # Sparql editor with frontend and backend submodules
 
-- To clone whole project including the submodules run git clone --recurse-submodules https://github.com/andrejpopordanoski/sparql_editor_full.git
+- To clone whole project including the submodules run:
+  </br>
+  git clone --recurse-submodules https://github.com/andrejpopordanoski/sparql_editor_full.git
 
 ## Docker
 
