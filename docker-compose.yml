@@ -3,19 +3,21 @@ version: '3.7'
 services:
   sparql_editor_fe:
     container_name: sparql_editor_fe
-    build:
-      context: ./sparql_editor_fe
-      dockerfile: Dockerfile.prod
+    image: andrejpopordanoski/sparql-editor:fe
+    # build:
+    #   context: ./sparql_editor_fe
+    #   dockerfile: Dockerfile.prod
     ports:
-      - '1337:80'
+      - '80:80'
     networks:
       - frontend
 
   sparql_editor_be:
     container_name: sparql_editor_be
-    build:
-      context: sparql_editor_be
-      dockerfile: Dockerfile
+    image: andrejpopordanoski/sparql-editor:be
+    # build:
+    #   context: sparql_editor_be
+    #   dockerfile: Dockerfile
     ports:
       - '8080:8080'
     restart: always
